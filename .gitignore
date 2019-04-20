@@ -4,4 +4,4 @@ npm-debug.log
 /*.env
 coverage
 help/
-logs/
+logs/application.log
