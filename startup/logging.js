@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const options = {
   file: {
     level: "info",
-    filename: `${appRoot}/logs/application.log`,
+    filename: "application.log", //`${appRoot}/logs/application.log`,
     handleExceptions: true,
     json: true,
     maxSize: 5242880, // 5MB
