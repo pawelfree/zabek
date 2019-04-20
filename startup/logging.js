@@ -24,6 +24,10 @@ const options = {
 require("express-async-errors");
 
 module.exports = function(app) {
+  process.on("unhandledRejection", ex => {
+    throw ex;
+  });
+
   let logger = new winston.createLogger({
     transports: [new winston.transports.File(options.file)],
     exitOnError: false // do not exit on handled exceptions
@@ -39,7 +43,7 @@ module.exports = function(app) {
     }
   };
 
-  app.use(morgan("combined", { stream: winston.stream }));
+  app.use(morgan("tiny", { stream: logger.stream }));
 
   return logger;
 };
