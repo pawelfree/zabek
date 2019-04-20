@@ -1,10 +1,8 @@
+const winston = require("winston");
 const app = require("express")();
 
-const winston = require("./startup/logging")(app);
-
-app.get("/", function(req, res) {
-  res.send("Hello World!");
-});
+require("./startup/logging")(app);
+require("./startup/routes")(app);
 
 const port = process.env.PORT || 3001;
 const server = app.listen(port, () =>
