@@ -8,6 +8,7 @@ module.exports = function(app) {
   app.use(express.urlencoded({ extended: 'true' }));
   app.use('/', express.static(path.join(__dirname, '../dist')));
   app.use(favicon(path.join(__dirname, '../dist/assets/img/favicon.png')));
+
   app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
   });

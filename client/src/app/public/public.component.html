@@ -161,7 +161,12 @@
           <button class="btn btn-primary btn-block">Zaloguj</button>
         </div>
         <div class="container text-dark" style="font-size: 0.8rem;">
-          <p>Nie jesteś użytkownikiem? <a>Zarejestruj się tutaj</a></p>
+          <p>
+            Nie jesteś użytkownikiem?
+            <a [routerLink]="['/signup']" data-dismiss="modal"
+              >Zarejestruj się tutaj</a
+            >
+          </p>
         </div>
       </div>
     </div>
