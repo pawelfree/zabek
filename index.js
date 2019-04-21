@@ -1,11 +1,11 @@
-const winston = require("winston");
-const app = require("express")();
+var winston = require('winston');
+var app = require('express')();
 
-require("./startup/logging")(app);
-require("./startup/routes")(app);
+require('./startup/logging')(app);
+require('./startup/routes')(app);
 
-const port = process.env.PORT || 3001;
-const server = app.listen(port, () =>
+var port = process.env.PORT || 3001;
+var server = app.listen(port, () =>
   winston.info(`Listening on port ${port}...`)
 );
 
