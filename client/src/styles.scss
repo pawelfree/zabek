@@ -2,7 +2,7 @@
 $primary: #3292a6;
 $primary-overlay: rgba(50, 146, 166, 0.8);
 
-@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 body {
   margin-top: 105px;
@@ -21,7 +21,7 @@ body {
 
 #showcase {
   position: relative;
-  background: url("./assets/img/mountains.jpg");
+  background: url('./assets/img/mountains.jpg');
   min-height: 600px;
   .primary-overlay {
     background: $primary-overlay;

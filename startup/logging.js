@@ -1,11 +1,11 @@
-const winston = require("winston");
-const morgan = require("morgan");
+var winston = require('winston');
+var morgan = require('morgan');
 
 module.exports = function(app) {
   winston.add(
     new winston.transports.File({
-      level: "debug",
-      filename: "application.log",
+      level: 'debug',
+      filename: 'application.log',
       handleExceptions: true,
       format: winston.format.combine(
         winston.format.timestamp(),
@@ -14,10 +14,10 @@ module.exports = function(app) {
     })
   );
 
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV !== 'production') {
     winston.add(
       new winston.transports.Console({
-        level: "debug",
+        level: 'debug',
         handleExceptions: true,
         format: winston.format.combine(
           winston.format.colorize(),
@@ -27,7 +27,7 @@ module.exports = function(app) {
     );
 
     app.use(
-      morgan("dev", {
+      morgan('dev', {
         stream: {
           write: function(message, encoding) {
             winston.info(message);
@@ -39,5 +39,5 @@ module.exports = function(app) {
 
   winston.exitOnError = false;
 
-  require("express-async-errors");
+  require('express-async-errors');
 };
