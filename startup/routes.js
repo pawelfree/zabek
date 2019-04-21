@@ -7,6 +7,7 @@ module.exports = function(app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: 'true' }));
   app.use('/', express.static(path.join(__dirname, '../dist')));
+  app.use('/signup', express.static(path.join(__dirname, '../dist')));
   app.use(favicon(path.join(__dirname, '../dist/assets/img/favicon.png')));
 
   app.get('/', function(req, res) {
