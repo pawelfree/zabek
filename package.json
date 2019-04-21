@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --verbose",
-    "start": "npm run build:client && node index.js",
+    "start": "node index.js",
     "build:client": "npm run --prefix client export",
-    "start:server": "node index.js"
+    "start:server": "node index.js",
+    "build": "npm run build:client"
   },
   "author": "",
   "license": "ISC",
