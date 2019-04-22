@@ -6,7 +6,6 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { collectExternalReferences } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'

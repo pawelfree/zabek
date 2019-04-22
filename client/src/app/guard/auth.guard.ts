@@ -14,27 +14,20 @@ export class AuthGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const x = this.checkLogin();
-    console.log('authguard can activate: ', x);
-    return x;
+    return this.checkLogin();
   }
 
   checkLogin(): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      if (this.userService.isLoggedIn()) {
-        resolve(true);
-      } else {
-        resolve(false);
-      }
-      // this.userService
-      //   .isLoggedIn()
-      //   .then(() => {
-      //     resolve(true);
-      //   })
-      //   .catch(() => {
-      //     this.router.navigate(['/']);
-      //     reject(false);
-      //   });
+      this.userService
+        .isLoggedIn()
+        .then(() => {
+          resolve(true);
+        })
+        .catch(() => {
+          this.router.navigate(['/']);
+          reject(false);
+        });
     });
   }
 }
