@@ -12,27 +12,28 @@ export class UserService {
   }
 
   isLoggedIn() {
-    return true;
-    // return new Promise((resolve, reject) => {
-    //   this.getCurrentUser()
-    //     .then(user => {
-    //       resolve(true);
-    //     })
-    //     .catch(() => {
-    //       reject(false);
-    //     });
-    // });
+    return new Promise((resolve, reject) => {
+      this.getCurrentUser()
+        .then(user => {
+          resolve(true);
+        })
+        .catch(() => {
+          reject(false);
+        });
+    });
   }
 
   getCurrentUser() {
-    // return new Promise((resolve, reject) => {
-    //   return this.http
-    //     .get('/api/users/me')
-    //     .toPromise()
-    //     .then(response => {
-    //       resolve(response);
-    //     })
-    //     .catch(() => reject());
-    // });
+    return new Promise((resolve, reject) => {
+      return this.http
+        .get('/api/users/me')
+        .toPromise()
+        .then(response => {
+          resolve(response);
+        })
+        .catch(() => {
+          reject();
+        });
+    });
   }
 }

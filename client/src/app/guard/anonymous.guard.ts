@@ -15,27 +15,20 @@ export class AnonymousGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const x = this.checkLogin();
-    console.log('anonymousguard can activate: ', x);
-    return x;
+    return this.checkLogin();
   }
 
   checkLogin(): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      if (this.userService.isLoggedIn()) {
-        resolve(true);
-      } else {
-        resolve(false);
-      }
-      // this.userService
-      //   .isLoggedIn()
-      //   .then(() => {
-      //     this.router.navigate(['/dashboard']);
-      //     reject(false);
-      //   })
-      //   .catch(() => {
-      //     resolve(true);
-      //   });
+      this.userService
+        .isLoggedIn()
+        .then(() => {
+          this.router.navigate(['/dashboard']);
+          reject(false);
+        })
+        .catch(() => {
+          resolve(true);
+        });
     });
   }
 }
