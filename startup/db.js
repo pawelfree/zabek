@@ -4,7 +4,10 @@ const config = require('config');
 
 module.exports = function() {
   const db = config.get('db');
+  //tymczasowe na heroku
+  var database = process.env.MONGODB_URI || db;
+
   mongoose
-    .connect(db, { useNewUrlParser: true })
-    .then(() => winston.info(`Connected to ${db}...`));
+    .connect(database, { useNewUrlParser: true })
+    .then(() => winston.info(`Connected to ${database}...`));
 };
