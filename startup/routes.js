@@ -4,6 +4,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var users = require('../routes/users');
 var auth = require('../routes/auth');
+var examination = require('../routes/examination');
 
 module.exports = function(app) {
   app.use(express.json());
@@ -13,6 +14,7 @@ module.exports = function(app) {
   app.use(favicon(path.join(__dirname, '../dist/assets/img/favicon.png')));
   app.use('/api/users', users);
   app.use('/api/auth', auth);
+  app.use('/api/examination', examination);
 
   app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../dist/index.html'));

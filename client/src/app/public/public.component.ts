@@ -16,8 +16,6 @@ export class PublicComponent implements OnInit {
   signinData = { email: '', password: '' };
   message = '';
 
-  //@ViewChild('loginModal') loginModal: ModalComponent;
-
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {}
