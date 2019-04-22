@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  signupData = { username: '', password: '', confirmPassword: '' };
+  signupData = { username: '', email: '', password: '', confirmPassword: '' };
   message = '';
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -16,14 +17,18 @@ export class SignupComponent implements OnInit {
   ngOnInit() {}
 
   signup() {
-    this.http.post('/auth/signup', this.signupData).subscribe(
-      resp => {
-        this.router.navigate(['/']);
-      },
-      err => {
-        console.log(err.error);
-        this.message = err.error;
-      }
-    );
+    this.http
+      .post(
+        '/api/users',
+        _.pick(this.signupData, ['username', 'email', 'password'])
+      )
+      .subscribe(
+        resp => {
+          this.router.navigate(['/']);
+        },
+        err => {
+          this.message = err.error;
+        }
+      );
   }
 }

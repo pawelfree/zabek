@@ -3,7 +3,11 @@
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
-footer {
-  background: $primary;
+body {
+  margin-top: 105px;
+}
+
+.footer {
+  background-color: $primary;
   color: #fff;
 }

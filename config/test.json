@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "imgdb_1234",
+  "db": "mongodb://localhost/imgdb_tests"
+}

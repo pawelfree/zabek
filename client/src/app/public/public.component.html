@@ -1,37 +1,33 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top py-4">
-  <div class="container">
-    <a href="#home" class="navbar-brand">
-      <img src="../../assets/img/logo.png" width="50" height="50" alt="" />
-      <h3 class="d-inline align-middle">{{ title }}</h3>
-    </a>
-    <button
-      class="navbar-toggler"
-      data-toggle="collapse"
-      data-target="#navbarCollapse"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="navbarCollapse" class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a href="#showcase" class="nav-link">Start</a>
-        </li>
-        <li class="nav-item">
-          <a
-            href="#loginModal"
-            class="nav-link"
-            data-toggle="modal"
-            data-keyboard="true"
-            >Zaloguj</a
-          >
-        </li>
-        <li class="nav-item">
-          <a href="#contact" class="nav-link">Kontakt</a>
-        </li>
-      </ul>
+<header>
+  <nav class="navbar navbar-expand-md navbar-light fixed-top py-4">
+    <div class="container">
+      <a href="#home" class="navbar-brand">
+        <img src="../../assets/img/logo.png" width="50" height="50" alt="" />
+        <h3 class="d-inline align-middle">{{ title }}</h3>
+      </a>
+      <button
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="#showcase" class="nav-link">Start</a>
+          </li>
+          <li class="nav-item">
+            <a href="#login" class="nav-link">Logowanie</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Kontakt</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
 
 <section id="showcase" class="py-5">
   <div class="primary-overlay text-white">
@@ -61,6 +57,59 @@
   </div>
 </section>
 
+<section id="login" class="py-5">
+  <div class="container">
+    <div class="row"></div>
+    <div class="col-lg text-center">
+      <h3>Zaloguj się do systemu</h3>
+      <form id="signinForm" (ngSubmit)="signIn()" #signinForm="ngForm">
+        <div class="input-group input-group-lg mb-3">
+          <input
+            autocomplete="username"
+            name="email"
+            type="email"
+            class="form-control form-control-lg"
+            placeholder="Email"
+            id="username"
+            [(ngModel)]="signinData.email"
+            required
+          />
+        </div>
+
+        <div class="input-group input-group-lg mb-3">
+          <input
+            autocomplete="current-password"
+            name="password"
+            type="password"
+            class="form-control form-control-lg"
+            placeholder="Hasło"
+            id="password"
+            [(ngModel)]="signinData.password"
+            required
+          />
+        </div>
+      </form>
+
+      <button
+        class="btn btn-primary btn-block"
+        form="signinForm"
+        type="submit"
+        [disabled]="!signinForm.form.valid"
+      >
+        Zaloguj
+      </button>
+      <div class="container text-dark" style="font-size: 0.8rem;">
+        <p>
+          Nie jesteś użytkownikiem?
+          <a [routerLink]="['/signup']" data-dismiss="modal"
+            >Zarejestruj się tutaj</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="bg-light py-5">
   <div class="container">
     <div class="row">
@@ -83,7 +132,6 @@
               placeholder="Imię i nazwisko"
             />
           </div>
-
           <div class="input-group input-group-lg mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">
@@ -92,7 +140,6 @@
             </div>
             <input type="text" class="form-control" placeholder="Email" />
           </div>
-
           <div class="input-group input-group-lg mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">
@@ -125,53 +172,3 @@
     </div>
   </div>
 </section>
-
-<!-- LOGIN MODAL -->
-<div class="modal fade text-dark" id="loginModal" tabindex="-1">
-  <div class="container">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Logowanie</h5>
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <input
-                autocomplete="username"
-                type="email"
-                class="form-control form-control-lg"
-                placeholder="Email"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                autocomplete="current-password"
-                type="password"
-                class="form-control form-control-lg"
-                placeholder="Hasło"
-              />
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary btn-block">Zaloguj</button>
-        </div>
-        <div class="container text-dark" style="font-size: 0.8rem;">
-          <p>
-            Nie jesteś użytkownikiem?
-            <a [routerLink]="['/signup']" data-dismiss="modal"
-              >Zarejestruj się tutaj</a
-            >
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--
-  <p>Not a member? <a [routerLink]="['/signup']">Signup here</a></p>
-  -->
