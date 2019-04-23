@@ -9,4 +9,5 @@ npm test
 <h5>a moze by tak ...</h5>
 <ul>
 <li>testowac przy pomocy mocha</li>
+<li>xhr przy pomocy axios</li>
 </ul>

@@ -3,9 +3,7 @@ const mongoose = require('mongoose');
 const config = require('config');
 
 module.exports = function() {
-  const db = config.get('db');
-  //tymczasowe na heroku
-  var database = process.env.MONGODB_URI || db;
+  var database = config.get('db');
 
   mongoose
     .connect(database, { useNewUrlParser: true })
