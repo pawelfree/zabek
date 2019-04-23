@@ -9,13 +9,17 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PublicComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

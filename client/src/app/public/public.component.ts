@@ -12,7 +12,6 @@ interface Token {
   styleUrls: ['./public.component.scss']
 })
 export class PublicComponent implements OnInit {
-  title = 'Ząbek RTG';
   signinData = { email: '', password: '' };
   message = '';
 
