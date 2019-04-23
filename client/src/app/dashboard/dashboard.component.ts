@@ -13,12 +13,19 @@ import { UserService } from '../service/user.service';
 })
 export class DashboardComponent implements OnInit {
   user;
+  state = { file: null };
+
   constructor(private http: HttpClient, private userService: UserService) {}
 
   ngOnInit() {}
 
   logout() {
     this.userService.logout();
+  }
+
+  getLink(event) {
+    this.state = { file: event.target.files };
+    console.log(this.state);
   }
 
   getExaminations() {
