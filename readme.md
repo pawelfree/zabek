@@ -6,7 +6,7 @@ npm start
 <h3>test (serwera)</h3>
 npm test
 <hr>
-<h5>a moze by tak</h5>
+<h5>a moze by tak ...</h5>
 <ul>
-<li>moze by testowac przy pomocy mocha</li>
+<li>testowac przy pomocy mocha</li>
 </ul>
