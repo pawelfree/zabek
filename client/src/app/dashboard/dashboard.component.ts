@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getExaminations() {
-    this.http.get('http://localhost:3001/api/examination/').subscribe(
+    this.http.get('/api/examination/').subscribe(
       res => {
         this.user = res;
       },

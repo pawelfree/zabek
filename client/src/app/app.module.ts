@@ -27,7 +27,6 @@ import { JwtModule } from '@auth0/angular-jwt';
         tokenGetter: () => {
           return localStorage.getItem('x-auth-token');
         },
-        whitelistedDomains: ['localhost:3001'],
         headerName: 'x-auth-token',
         authScheme: ''
       }
