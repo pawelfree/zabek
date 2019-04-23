@@ -4,6 +4,7 @@ import {
   HttpHeaders,
   HttpErrorResponse
 } from '@angular/common/http';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,11 +12,23 @@ import {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  user;
+  constructor(private http: HttpClient, private userService: UserService) {}
 
-  ngOnInit() {
-    this.http.get('http://localhost:3001/api/examination/').subscribe(res => {
-      console.log('examination endpoint called - user: ', res);
-    });
+  ngOnInit() {}
+
+  logout() {
+    this.userService.logout();
+  }
+
+  getExaminations() {
+    this.http.get('http://localhost:3001/api/examination/').subscribe(
+      res => {
+        this.user = res;
+      },
+      err => {
+        this.user = '';
+      }
+    );
   }
 }

@@ -1,3 +1,15 @@
-<p>
-  dashboard works!
-</p>
+<div class="container">
+  <div class="row">
+    <div *ngIf="user; else loading">
+      {{ user._id }}
+    </div>
+
+    <ng-template #loading>
+      <div>Loading...</div>
+    </ng-template>
+    <button class="btn btn-primary" (click)="logout()">Wyloguj</button>
+    <button class="btn btn-primary" (click)="getExaminations()">
+      Pobierz badania
+    </button>
+  </div>
+</div>
