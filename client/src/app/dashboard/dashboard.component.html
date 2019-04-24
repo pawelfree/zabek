@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div *ngIf="user; else loading">
-      {{ user._id }}
+    <div *ngIf="examinations; else loading">
+      {{ examinations }}
     </div>
 
     <ng-template #loading>

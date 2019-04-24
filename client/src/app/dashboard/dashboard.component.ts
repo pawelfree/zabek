@@ -12,7 +12,7 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  user;
+  examinations;
   state = { file: null };
 
   constructor(private http: HttpClient, private userService: UserService) {}
@@ -31,10 +31,10 @@ export class DashboardComponent implements OnInit {
   getExaminations() {
     this.http.get('/api/examination/').subscribe(
       res => {
-        this.user = res;
+        this.examinations = JSON.stringify(res);
       },
       err => {
-        this.user = '';
+        this.examinations = '';
       }
     );
   }
