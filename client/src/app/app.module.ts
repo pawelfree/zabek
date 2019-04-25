@@ -39,7 +39,7 @@ import { FooterComponent } from './footer/footer.component';
     ExaminationsComponent,
     ExaminationDetailComponent,
     ExaminationAddComponent,
-    ExaminationEditComponent
+    ExaminationEditComponent,
     MenuComponent,
     FooterComponent
   ],

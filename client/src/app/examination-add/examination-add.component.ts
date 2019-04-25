@@ -14,7 +14,6 @@ export class ExaminationAddComponent implements OnInit {
   prod_name:string='';
   prod_desc:string='';
   prod_price:number=null;
-  updated_at:Date=null;
   isLoadingResults = false;
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }

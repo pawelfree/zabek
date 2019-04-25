@@ -8,7 +8,8 @@ import { Examination } from './examination';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "/api/v1/examinations";
+//const apiUrl = "/api/v1/examinations";
+const apiUrl = "http://localhost:3000/api/v1/examinations";
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,7 @@ export class ApiService {
 
   addExamination (examination): Observable<Examination> {
     return this.http.post<Examination>(apiUrl, examination, httpOptions).pipe(
-      tap((product: Examination) => console.log(`added examination w/ id=${examination.id}`)),
+      tap((product: Examination) => console.log(`added examination w/ id=${examination._id}`)),
       catchError(this.handleError<Examination>('addExamination'))
     );
   }
