@@ -8,6 +8,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { JwtModule } from '@auth0/angular-jwt';
+
 import { ExaminationsComponent } from './examinations/examinations.component';
 import { ExaminationDetailComponent } from './examination-detail/examination-detail.component';
 import { ExaminationAddComponent } from './examination-add/examination-add.component';
@@ -26,6 +27,8 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule } from "@angular/material";
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import {
     ExaminationDetailComponent,
     ExaminationAddComponent,
     ExaminationEditComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

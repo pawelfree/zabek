@@ -12,7 +12,9 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  user;
+  examinations;
+  state = { file: null };
+
   constructor(private http: HttpClient, private userService: UserService) {}
 
   ngOnInit() {}
@@ -21,13 +23,18 @@ export class DashboardComponent implements OnInit {
     this.userService.logout();
   }
 
+  getLink(event) {
+    this.state = { file: event.target.files };
+    console.log(this.state);
+  }
+
   getExaminations() {
     this.http.get('/api/examination/').subscribe(
       res => {
-        this.user = res;
+        this.examinations = JSON.stringify(res);
       },
       err => {
-        this.user = '';
+        this.examinations = '';
       }
     );
   }

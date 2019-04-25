@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div *ngIf="user; else loading">
-      {{ user._id }}
+    <div *ngIf="examinations; else loading">
+      {{ examinations }}
     </div>
 
     <ng-template #loading>
@@ -11,5 +11,8 @@
     <button class="btn btn-primary" (click)="getExaminations()">
       Pobierz badania
     </button>
+    <hr />
+    <h5>Select an image</h5>
+    <input type="file" accept="image/*" (change)="getLink($event)" />
   </div>
 </div>
